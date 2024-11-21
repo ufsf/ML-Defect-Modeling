@@ -1,2 +1,5 @@
 # ML-Defect-Modeling
-This repository provide the instructions, data and models for modeling extensive defects in metals using machine learning techaniques.
+This repository provides instructions, data, and models for modeling extensive defects in metals using machine learning techniques.
+# Overview
+# System Requirements
+# Installation Guide:

@@ -1,1 +1,13 @@
 This folder includes some useful scripts to construct defect genome for modeling extensive defects in metals through emperical interatomic potential-guided active learning (EIP-AL) and periodic configuration construction via grand canonical Monte Carlo simulations (PCC-GCMC). 
+1. Run MD without active learning
+2. ######################### lammps select new clusters, run MD with active learning
+
+#########################
+# select-add
+3. mpirun -np 1 /scratch1/08271/fshuang/Tools/mlip-3/bin/mlp select_add curr.almtp train.cfg preselected.cfg selected.cfg
+4. mpirun -np 1 /scratch1/08271/fshuang/Tools/mlip-3/bin/mlp cut_extrapolative_nbh selected.cfg nbh.cfg --cutoff=8 --no_save_additional_atoms
+5. mpirun -np 1 /scratch1/08271/fshuang/Tools/mlip-3/bin/mlp convert nbh.cfg outmodel --output_format=poscar
+
+# 
+# calculate grade for a large structure
+srun /home/fshuang/Tools/mlip-3/bin/mlp calculate_grade basic-cluster-mtp3.almtp 1.cfg 1-grade.cfg

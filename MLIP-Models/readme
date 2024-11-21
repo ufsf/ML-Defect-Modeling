@@ -1,1 +1,4 @@
-
+1. W.yace: ACE potential file for modeling extensive defects in BCC tungsten.
+2. W.yaml and W.asi: Calculate the extrapolation grade.
+3. input.yaml: Training input file for the pacemaker.
+4. log.txt: Log of training history.

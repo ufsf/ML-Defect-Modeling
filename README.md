@@ -5,8 +5,8 @@ Extended defects such as dislocation networks and general grain boundaries are u
 # Software Requirements
 1. LAMMPS https://github.com/lammps/lammps.git
 2. Moment Tensor Potential (MTP) and Active Learning
-   https://gitlab.com/ashapeev/mlip-2.git
-   https://gitlab.com/ashapeev/interface-lammps-mlip-2.git
-   https://gitlab.com/ashapeev/mlip-3.git
+   https://gitlab.com/ashapeev/mlip-2.git;
+   https://gitlab.com/ashapeev/interface-lammps-mlip-2.git;
+   https://gitlab.com/ashapeev/mlip-3.git;
    https://gitlab.com/ivannovikov/interface-lammps-mlip-3.git
    

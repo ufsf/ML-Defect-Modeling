@@ -13,5 +13,6 @@ Extended defects such as dislocation networks and general grain boundaries are u
 4. Atomic Cluster Expansion (ACE) potential development
    https://pacemaker.readthedocs.io/en/latest/
 
-   
-   
+# Citation
+If you utilize the potentials, EIP-AL, or PCC-GCMC from this repository, please cite the following:
+https://doi.org/10.48550/arXiv.2411.07367

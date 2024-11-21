@@ -7,10 +7,10 @@ Extended defects such as dislocation networks and general grain boundaries are u
 2. Moment Tensor Potential (MTP) development
    https://gitlab.com/ashapeev/mlip-2.git;   
    https://gitlab.com/ashapeev/interface-lammps-mlip-2.git
-3. Active learning based on D-optilimatlity
+3. Active learning based on D-optimality
    https://gitlab.com/ashapeev/mlip-3.git;
    https://gitlab.com/ivannovikov/interface-lammps-mlip-3.git
-4. Atomic Cluster Expansion
+4. Atomic Cluster Expansion (ACE) potential development
    https://pacemaker.readthedocs.io/en/latest/
 
    

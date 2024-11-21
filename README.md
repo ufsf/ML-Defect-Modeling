@@ -1,5 +1,7 @@
 # ML-Defect-Modeling
 This repository provides instructions, data, and models for modeling extensive defects in metals using machine learning techniques.
 # Overview
-# System Requirements
-# Installation Guide:
+Extended defects such as dislocation networks and general grain boundaries are ubiquitous in metals, and accurately modeling these extensive defects is crucial for understanding their deformation mechanisms. Existing machine learning interatomic potentials (MLIPs) often fall short in adequately describing these defects, as their significant characteristic sizes exceed the computational limits of first-principles calculations. In this study, we address these challenges by establishing a comprehensive defect genome through empirical interatomic potential-guided active machine learning. To further enable accurate first-principles calculations on this defect genome, we have developed an automated configuration reconstruction technique. This method transforms defect atomic clusters into periodic configurations through precise atom insertion, utilizing Grand Canonical Monte Carlo simulations. These strategies enable the development of highly accurate and transferable MLIPs for modeling extensive defects in metals.
+# Software Requirements
+1. LAMMPS https://github.com/lammps/lammps.git
+2. 

@@ -1,0 +1,130 @@
+##variable        index equal 1
+variable	GBmodel	string	my.data
+variable	T	equal	100
+
+units	metal
+dimension	3
+boundary	p p p
+atom_style	atomic
+
+atom_modify     map array
+
+neigh_modify delay 10 check yes
+
+
+read_data 	${GBmodel}
+
+pair_style eam/alloy
+pair_coeff * * ../Fe_Zhou04.eam.alloy Fe Fe
+neighbor        2.0     bin 
+neigh_modify    every   1      check   yes 
+
+
+variable        Lx equal lx
+variable        Ly equal ly
+variable        Lz equal lz
+
+variable	Lenx equal	${Lx}
+variable	Leny equal	${Ly}
+variable	Lenz equal	${Lz}
+
+clear 
+###########################################################33
+# Loop over X, Y, Z dimensions
+
+variable Emin equal 10
+
+variable i loop 3
+label loopX
+
+variable j loop 3
+label loopY
+
+variable k loop 3
+label loopZ
+
+variable	LenxTemp	equal	${Lenx}+0.5*${i}-1.5
+variable	LenyTemp	equal	${Leny}+0.5*${j}-1.5
+variable	LenzTemp	equal	${Lenz}+0.5*${k}-1.5
+
+units	metal
+dimension	3
+boundary	p p p
+atom_style	atomic
+
+atom_modify     map array
+
+neigh_modify delay 10 check yes
+
+
+read_data 	${GBmodel}
+
+pair_style eam/alloy
+pair_coeff * * ../Fe_Zhou04.eam.alloy Fe Fe
+neighbor        2.0     bin 
+neigh_modify    every   1      check   yes 
+
+# Change the box size along X, Y, Z
+change_box   all x final 0 ${LenxTemp} y final 0 ${LenyTemp} z final 0 ${LenzTemp} units box
+# Here to change box size.
+region inside	block 0 ${LenxTemp} 0 ${LenxTemp} 0 ${LenxTemp}
+group insideatom type 1
+reset_timestep 0 
+thermo 		100 #output thermodynamics every N timesteps
+thermo_style 	custom step lx ly lz press pxx pyy pzz pe temp atoms
+
+thermo_modify lost ignore flush yes
+
+timestep 		0.001
+compute       peratom all pe/atom
+fix 1 insideatom setforce 0.0 0.0 0.0
+
+
+group	Amor	empty
+
+variable	mu	equal	0.1
+fix	2	Amor	nvt	temp ${T} ${T} 0.1	
+fix 	3 	Amor	gcmc	10	10	100	2	43168	${T}	${mu}	0.1	full_energy group Amor
+run 2000
+unfix	2
+unfix	3
+#write_dump    all custom dump/${i}${j}${k}_beforeRelax.dump id type x y z
+
+min_style        cg
+minimize         0 1.0e-12 10000 10000
+#fix	2	Amor	box/relax	x	0	y	0	z	0 dilate	partial
+#min_style        cg
+#minimize         0 1.0e-12 10000 10000
+#unfix	2
+#write_dump    all custom dump/${i}${j}${k}.dump id type x y z
+
+run 0
+
+variable mype equal pe
+
+variable nAtom equal atoms
+
+variable pe_ave equal v_mype/v_nAtom
+
+if "(${pe_ave} <= ${Emin}) && (${nAtom}<=150)" then "write_data new.data"
+
+run 0
+
+if "${pe_ave} <= ${Emin}" then "variable Emin equal ${pe_ave}"
+
+print "${pe_ave} ${nAtom}" append pe.txt screen no
+
+clear
+#########################################################################
+# Increment lengths
+next k
+jump SELF loopZ
+
+next j
+jump SELF loopY
+
+next i
+jump SELF loopX
+
+# End of script
+print "Loop finished"

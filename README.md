@@ -12,7 +12,8 @@ Extended defects such as dislocation networks and general grain boundaries are u
    https://gitlab.com/ivannovikov/interface-lammps-mlip-3.git
 4. Atomic Cluster Expansion (ACE) potential development
    https://pacemaker.readthedocs.io/en/latest/
-
+# Installation Guide
+The installation instructions for each package or software can be found in the links above.
 # Citation
 If you utilize the potentials, EIP-AL, or PCC-GCMC from this repository, please cite the following:
 https://doi.org/10.48550/arXiv.2411.07367

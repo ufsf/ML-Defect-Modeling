@@ -1,3 +1,4 @@
+0. W-mlip3-basic.almtp: mlip3 file of W trained by the basic dataset, which can be used to select new defect clusters based on active machine learning.
 1. W.yace: ACE potential file for modeling extensive defects in BCC tungsten.
 2. W.yaml and W.asi: Calculate the extrapolation grade.
 3. input.yaml: Training input file for the pacemaker.

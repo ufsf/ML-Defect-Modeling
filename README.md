@@ -1,4 +1,4 @@
-# Modeling Extensive Defects in Metals through Active Machine Learning and Automated Configuration Reconstruction
+# Modeling Extensive Defects in Metals through Classical Potential-Guided Sampling and Automated Configuration Reconstruction
 ![Description of the figure](images/Fig1.png "Figure Title")
 This repository provides instructions, data, and models for modeling extensive defects in metals using machine learning techniques.
 # Overview

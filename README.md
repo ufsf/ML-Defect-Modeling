@@ -21,4 +21,4 @@ The installation instructions for each package or software can be found in the l
 Script folder.
 # Citation
 If you utilize the potentials, EIP-AL, or PCC-GCMC from this repository, please cite the following:
-https://doi.org/10.48550/arXiv.2411.07367
+[https://doi.org/10.48550/arXiv.2411.07367](https://www.nature.com/articles/s41524-025-01599-1)
